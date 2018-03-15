@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JsInsertTest</title>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    {% javascripts '@DevJsInsertTestBundle/Resources/js/index.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% stylesheets '@DevJsInsertTestBundle/Resources/css/index.css' %}
+    <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
+    {% endstylesheets %}
+</head>
+<body>
+<div id="content">
+    <div class="line">
+        <span class="comment">// Scripts js, variables js et css reçus de php</span>
+    </div>
+    <div class="line"></div>
+    <div class="line">
+        <span class="comment">// Propriété d'objet</span>
+    </div>
+    <div class="line">
+        <span class="jsVariable">root.path1.path1.var1</span> = <span class="jsValue"></span>
+    </div>
+    <div class="line">
+        <span class="jsVariable">root.path1.path2.var2</span> = <span class="jsValue"></span>
+    </div>
+    <div class="line">
+        <span class="comment">// Variables</span>
+    </div>
+    <div class="line">
+        <span class="jsVariable">root.path2.var1</span> = <span class="jsValue"></span>
+    </div>
+    <div class="line">
+        <span class="jsVariable">root.path2.var1</span> = <span class="jsValue"></span>
+    </div>
+    <div class="line">
+        <span class="jsVariable">var1</span> = <span class="jsValue"></span>
+    </div>
+    <div class="line">
+        <span class="jsVariable">var2</span> = <span class="jsValue"></span>
+    </div>
+</div>
+</body>
+</html>

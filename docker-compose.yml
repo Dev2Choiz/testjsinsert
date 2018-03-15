@@ -1,0 +1,40 @@
+version: '3'
+
+networks:
+  net_jsinsert:
+    driver: bridge
+
+services:
+  container_jsinsert:
+    build:
+      context: .
+      dockerfile: docker/jsinsert/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html/jsinsert
+    environment:
+      CONTAINER_MYSQL_HOST: "container_mysql"
+      CONTAINER_MYSQL_PORT: "3306"
+      CONTAINER_MYSQL_USER: "root"
+      CONTAINER_MYSQL_PASSWORD: "secret"
+      #xdebug
+      PHP_IDE_CONFIG: "serverName=192.168.0.42"
+      XDEBUG_CONFIG: "remote_host=192.168.0.15 idekey=PHPSTORM"
+    networks:
+      - net_jsinsert
+    depends_on:
+      - container_mysql
+
+  container_mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_USER=jsinsert
+      - MYSQL_PASSWORD=secret
+    volumes:
+      - ./docker/mysql/etc:/docker-entrypoint-initdb.d
+    networks:
+      - net_jsinsert

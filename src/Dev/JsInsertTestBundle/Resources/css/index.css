@@ -1,0 +1,21 @@
+#content {
+    width: 600px;
+    margin: 100px auto 0;
+    background-color: #000;
+    padding: 15px;
+    border: 3px #666 solid;
+    color: #FFF;
+    font-size: 30px;
+}
+.jsVariable {
+    color: var(--variable-color);
+}
+.jsValue {
+    color: var(--value-color);
+}
+.line {
+    min-height: 30px;
+}
+.comment {
+    color: var(--comment-color);
+}

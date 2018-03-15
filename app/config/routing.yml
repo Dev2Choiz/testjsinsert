@@ -1,0 +1,4 @@
+
+dev_js_insert_test:
+    resource: '@DevJsInsertTestBundle/Resources/config/routing.yml'
+    prefix:   /
